@@ -22,4 +22,20 @@ public class Solution {
         second.next = second.next.next;
         return dummy.next;
     }
+
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode newNode = new ListNode(0);
+        newNode.next = head;
+        ListNode first = head;
+        ListNode sec = head;
+        for(int i = 0;i<n; i++){
+            first = first.next;
+        }
+        while (first != null){
+            first = first.next;
+            sec = sec.next;
+        }
+        sec.next = sec.next.next;
+        return newNode.next;
+    }
 }

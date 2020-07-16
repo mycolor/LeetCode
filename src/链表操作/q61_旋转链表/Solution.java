@@ -28,4 +28,24 @@ public class Solution {
 
         return newHead;
     }
+
+    public ListNode rotateRight(ListNode head ,int k){
+        if(head ==null)return null;
+        if(head.next ==null) return head;
+        ListNode oldTail = head;
+        int i;
+        for(i=1;oldTail.next!=null;i++){
+            oldTail =oldTail.next;
+        }
+        oldTail.next = head;
+        ListNode newTail = head;
+        for(int j = 0;j<i-k%i-1;j++){
+            newTail = newTail.next;
+        }
+        ListNode newHead =newTail.next;
+        newTail.next = null;
+        return newHead;
+    }
+
+
 }

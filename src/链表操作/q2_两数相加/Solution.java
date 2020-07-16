@@ -47,4 +47,44 @@ public class Solution {
 
         return rs;
     }
+
+    public ListNode add(ListNode l1,ListNode l2){
+        ListNode rs = ListNode(l1.val + l2.val);
+        ListNode tmp  = rs;
+        l1 = l1.next;
+        l2 = l2.next;
+        while (l1.next!= null && l2.next!= null){
+            int a = 0;
+            int b = 0;
+
+            if(l1!= null){
+                a = l1.val;
+            }
+            if(l2 != null){
+                b = l2.val;
+            }
+            int t = a+b;
+            tmp.next = new ListNode(t);
+            tmp = tmp.next;
+            if(l1 != null){
+                l1 = l1.next;
+            }
+            if(l2 != null){
+                l2 = l2.next;
+            }
+        }
+        tmp = rs;
+
+        while (tmp!= null){
+            if(tmp>=10 ){
+                tmp.val = tmp.val-10;
+                if(tmp.next == null){
+                    tmp.next = new ListNode(0);
+                }
+                tmp.next.val = tmp.next.val +1;
+                tmp = tmp.next;
+            }
+        }
+        return rs;
+    }
 }

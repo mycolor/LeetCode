@@ -11,19 +11,18 @@ public class Solution {
 
     public Node copyRandomList(Node head) {
 
-        if (head == null) {
+        if(head == null){
             return null;
         }
-        if (this.visitedHash.containsKey(head)) {
-            return this.visitedHash.get(head);
+        if(this.visitedHash.containKey(head)){
+            return visitedHash.get(head);
         }
-
-        Node node = new Node(head.val);
-
-        this.visitedHash.put(head, node);
-        node.next = this.copyRandomList(head.next);
-        node.random = this.copyRandomList(head.random);
-
+        Node node = Node(head.val);
+        visitedHash.put(head,node);
+        node.next = copyRandomList(head.next);
+        node.random = copyRandomList(head.random);
         return node;
     }
+
+
 }
